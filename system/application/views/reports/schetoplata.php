@@ -24,7 +24,7 @@ function f_d2($var)
  <table width=100% >
  <tr>
  <td align=left> <center><b>СЧЕТ<?php echo $schet;?> №</b>
-<?php echo $number.' от ';
+<?php echo "0".$number.' от ';
 if (strlen($data_schet)==0){ echo datetostring($schetfactura_date->date);} else { echo $data_schet;}?>
  </center> </td>
  <td> (1)</td>
