@@ -144,7 +144,7 @@ if (strlen($data_schet)==0){ echo datetostring($schetfactura_date->date);} else 
 	?>
 	<TR>
 		<TD vAlign=center align=middle><FONT size=1><?php echo $i++;?> </FONT> 
-		<TD vAlign=center align=middle><FONT size=1>Электроэнергия</FONT> 
+		<TD vAlign=center align=middle><FONT size=1>Электроэнергия за <?php echo get_month_title($schetfactura_date->date).' '.get_year_number($schetfactura_date->date); ?> года</FONT>
 		<TD vAlign=center align=middle><FONT size=1>кВт</FONT> 
 		<TD vAlign=center align=middle><FONT size=1> 
 		<?php echo f_d($tariff_kvt[$j]); ?> </FONT> 
