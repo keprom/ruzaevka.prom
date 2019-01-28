@@ -122,7 +122,7 @@ if (strlen($data_schet)==0){ echo datetostring($schetfactura_date->date);} else 
  <td> </td>
  </tr>
  <tr>
- <td width=2100px>Жүк алушы БСН<br/>Грузополучатель БИН  <u>  <?php echo $firm->bin.", ".$firm->name.", <br/>".$firm->address;?>                                                                                                                 </u>   </td>
+ <td width=2100px>Жүк алушы БСН<br/>Грузополучатель БИН  <u> <?php echo $consignee;?>                                                                                                                 </u>   </td>
  <td> (9)</td>
  </tr>
  <tr align=right>
@@ -130,11 +130,11 @@ if (strlen($data_schet)==0){ echo datetostring($schetfactura_date->date);} else 
  <td> </td>
  </tr>
   <tr>
- <td width=2100px><b>Алушы<br/>Получатель <u>        <?php echo "{$firm->name}"; ?>                </u></b></td>
+ <td width=2100px><b>Алушы<br/>Получатель <u><?php echo $recipient; ?></u></b></td>
  <td> (10)</td>
  </tr>
  <tr>
- <td width=2100px>Алушының БСН<br/>БИН и адрес нахождения получателя <u> <?php echo "БИН ".$firm->bin.", ".$firm->address;?></u></td>
+ <td width=2100px>Алушының БСН<br/>БИН и адрес нахождения получателя <u> <?php echo $recipient_address;?></u></td>
  </tr>
  <tr>
  <td width=2100px>Алушының ЖСК<br/> ИИК получателя<u>   <?php echo $firm->raschetnyy_schet;?></u> в банке <u><?php echo $bank->name;?></u></td>

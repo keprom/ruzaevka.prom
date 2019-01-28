@@ -971,142 +971,94 @@ function dob($text)
 		$this->left();
 		$this->load->view("pre_schetfactura2",$data);
 		$this->load->view("right");
-	}	
-	function schetfactura()
-	{
-		if (isset($_POST['akt_vypolnenyh_rabot']))
-				$data['akt_vypolnenyh_rabot']="Акт выполненых работ";
-				else
-				$data['akt_vypolnenyh_rabot']="";
-		//$this->db->where('period_id',$_POST['period_id']);
-		$this->db->where('id',$_POST['firm_id']);
-		$this->db->update('industry.firm',
-			array(
-				'edit1'=>$_POST['edit1'],
-				'edit2'=>$_POST['edit2'],
-				'edit3'=>$_POST['edit3'],
-				'edit4'=>$_POST['edit4'],
-				'edit5'=>$_POST['edit5'],
-				'edit6'=>$_POST['edit6']
-			)
-		);
-		
-		#FINE
-		$this->db->where('period_id', $_POST['period_id']);
-		$this->db->where('firm_id', $_POST['firm_id']);
-		$isset_fine = $this->db->get("industry.fine_source_data")->num_rows();
-		if ((isset($isset_fine)) and ($isset_fine > 0)) {
-			$this->db->where('period_id', $_POST['period_id']);
-			$this->db->where('firm_id', $_POST['firm_id']);
-			$data['fine_value'] = $this->db->get("industry.fine_source_data")->row()->fine_value;
-		}
-		#END FINE
-		
-		$this->load->plugin('chislo');
-		
-		//$dt_zp="select * from industry.period where id=".$_POST['period_id'];
-		//$data['dtqr']=$this->db->query($dt_zp)->result();
-		
-		$sql="SELECT * FROM industry.org_info";
-		$data['org']=$this->db->query($sql)->row();
-		$sql="select * from industry.schetfactura where tariff_value<>0 and firm_id=".$_POST['firm_id'].' and period_id='.$_POST['period_id'];
-		$data['s']=$this->db->query($sql)->result();
-		
-		$dt_zp="select * from industry.period where id=".$_POST['period_id']."";
-		$data['dtqr']=$this->db->query($dt_zp)->result();
-		
-		$this->db->where('firm_id',$_POST['firm_id']);
-		$this->db->where('period_id',$_POST['period_id']);
-		$data['schetfactura_date']=$this->db->get('industry.schetfactura_date')->row();
-		$this->db->where('id',$_POST['firm_id']);
-		$data['firm']=$this->db->get('industry.firm')->row();
-		$data['edit1']=$_POST['edit1'];
-		$data['edit2']=$_POST['edit2'];
-		$data['edit3']=$_POST['edit3'];
-		$data['edit4']=$_POST['edit4'];
-		$data['edit5']=$_POST['edit5'];
-		$data['edit6']=$_POST['edit6'];
-		$data['data_schet']=$_POST['data_schet'];
-		$this->db->where('id',$_POST['period_id']);
-		$data['period']=$this->db->get('industry.period')->row();
-		$this->db->where('id',$data['firm']->bank_id);
-		$data['bank']=$this->db->get('industry.bank')->row();
-		
-		$this->db->where('period_id',$_POST['period_id']);
-		$this->db->where('firm_id',$_POST['firm_id']);
-		$data['itog']=$this->db->get("industry.vedomost_itog")->row();
-		
-		if (!isset($_POST['html']))
-		{
-			if (isset($_POST['new_schetfactura'])) {
-			$string = $this->load->view("reports/schetfactura_new",$data,TRUE);
-
-
-			$this->load->library("pdf/pdf");
-
-			$this->pdf->SetSubject('TCPDF Tutorial');
-			$this->pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-			$this->pdf->SetAutoPageBreak(TRUE);
-			// set font
-			$this->pdf->SetFont('dejavusans', '', 9);
-
-			// add a page
-			$this->pdf->AddPage('P');
-
-			$this->pdf->writeHTML($string);
-
-			//Close and output PDF document
-			$this->pdf->Output('example_001.pdf', 'I'); }
-			if (isset($_POST['nakladnaya'])) {
-			$string = $this->load->view("reports/nakladnaya",$data,TRUE);
-
-
-			$this->load->library("pdf/pdf");
-
-			$this->pdf->SetSubject('TCPDF Tutorial');
-			$this->pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-			$this->pdf->SetAutoPageBreak(TRUE);
-			// set font
-			$this->pdf->SetFont('dejavusans', '', 9);
-
-			// add a page
-			$this->pdf->AddPage('P');
-
-			$this->pdf->writeHTML($string);
-
-			//Close and output PDF document
-			$this->pdf->Output('example_001.pdf', 'I'); }
-		if (isset($_POST['akt_vypolnenyh_rabot']))
-		{
-		$this->load->view("reports/avp2",$data);
-		
-		}
-		else {
-			$string=$this->load->view("reports/schetfactura",$data,TRUE);
-
-
-			$this->load->library("pdf/pdf");
-
-			$this->pdf->SetSubject('TCPDF Tutorial');
-			$this->pdf->SetKeywords('TCPDF, PDF, example, test, guide');
-			$this->pdf->SetAutoPageBreak(TRUE);
-			// set font
-			$this->pdf->SetFont('dejavusans', '', 9);
-
-			// add a page
-			$this->pdf->AddPage('P');
-
-			$this->pdf->writeHTML($string);
-
-			//Close and output PDF document
-			$this->pdf->Output('example_001.pdf', 'I'); 
-			}
-		}
-		else
-		{
-			$this->load->view("reports/schetfactura2",$data );
-		}		
 	}
+
+    function schetfactura()
+    {
+        if (isset($_POST['akt_vypolnenyh_rabot'])) {
+            $data['akt_vypolnenyh_rabot'] = "Акт выполненых работ";
+        } else {
+            $data['akt_vypolnenyh_rabot'] = "";
+        }
+
+        $this->db->where('id', $_POST['firm_id']);
+        $this->db->update('industry.firm',
+            array(
+                'edit1' => $_POST['edit1'],
+                'edit2' => $_POST['edit2'],
+                'edit3' => $_POST['edit3'],
+                'edit4' => $_POST['edit4'],
+                'edit5' => $_POST['edit5'],
+                'edit6' => $_POST['edit6']
+            )
+        );
+
+        #FINE
+        $this->db->where('period_id', $_POST['period_id']);
+        $this->db->where('firm_id', $_POST['firm_id']);
+        $isset_fine = $this->db->get("industry.fine_source_data")->num_rows();
+        if ((isset($isset_fine)) and ($isset_fine > 0)) {
+            $this->db->where('period_id', $_POST['period_id']);
+            $this->db->where('firm_id', $_POST['firm_id']);
+            $data['fine_value'] = $this->db->get("industry.fine_source_data")->row()->fine_value;
+        }
+        #END FINE
+
+        $this->load->plugin('chislo');
+
+        $sql = "SELECT * FROM industry.org_info";
+        $data['org'] = $this->db->query($sql)->row();
+        $sql = "select * from industry.schetfactura where tariff_value<>0 and firm_id=" . $_POST['firm_id'] . ' and period_id=' . $_POST['period_id'];
+        $data['s'] = $this->db->query($sql)->result();
+
+        $dt_zp = "select * from industry.period where id=" . $_POST['period_id'] . "";
+        $data['dtqr'] = $this->db->query($dt_zp)->result();
+
+        $this->db->where('firm_id', $_POST['firm_id']);
+        $this->db->where('period_id', $_POST['period_id']);
+        $data['schetfactura_date'] = $this->db->get('industry.schetfactura_date')->row();
+        $this->db->where('id', $_POST['firm_id']);
+        $data['firm'] = $this->db->get('industry.firm')->row();
+        $data['edit1'] = $_POST['edit1'];
+        $data['edit2'] = $_POST['edit2'];
+        $data['edit3'] = $_POST['edit3'];
+        $data['edit4'] = $_POST['edit4'];
+        $data['edit5'] = $_POST['edit5'];
+        $data['edit6'] = $_POST['edit6'];
+        $data['consignee'] = $_POST['consignee'];
+        $data['recipient'] = $_POST['recipient'];
+        $data['recipient_address'] = $_POST['recipient_address'];
+
+        $data['data_schet'] = $_POST['data_schet'];
+        $this->db->where('id', $_POST['period_id']);
+        $data['period'] = $this->db->get('industry.period')->row();
+        $this->db->where('id', $data['firm']->bank_id);
+        $data['bank'] = $this->db->get('industry.bank')->row();
+
+        $this->db->where('period_id', $_POST['period_id']);
+        $this->db->where('firm_id', $_POST['firm_id']);
+        $data['itog'] = $this->db->get("industry.vedomost_itog")->row();
+
+        $this->load->library("pdf/pdf");
+        $this->pdf->SetSubject('TCPDF Tutorial');
+        $this->pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+        $this->pdf->SetAutoPageBreak(TRUE);
+        $this->pdf->SetFont('dejavusans', '', 9);
+        $this->pdf->AddPage('P');
+
+        if (isset($_POST['nakladnaya'])) {
+            $string = $this->load->view("reports/nakladnaya", $data, TRUE);
+            $this->pdf->writeHTML($string);
+            $this->pdf->Output('example_001.pdf', 'I');
+        } elseif (isset($_POST['akt_vypolnenyh_rabot'])) {
+            $this->load->view("reports/avp2", $data);
+        } else {
+            $string = $this->load->view("reports/schetfactura_new", $data, TRUE);
+            $this->pdf->writeHTML($string);
+            $this->pdf->Output('example_001.pdf', 'I');
+        }
+    }
+
 	function pre_schetoplata()
 	{
 		$this->db->where('id',$this->uri->segment(3));
