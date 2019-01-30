@@ -48,19 +48,23 @@ echo form_open("billing/schetfactura");
     </tr>
     <tr>
         <td>Грузополучатель:</td>
-        <td><input style="width:300px;" type="text"
-                   value="<?php echo $firm->bin . ', ' . $firm->name . ',' . $firm->address; ?>" name="consignee">
+        <td>
+            <textarea name="consignee" id="" cols="40" rows="6">
+                <?php echo $firm->bin . ", " . $firm->name . "," . $firm->address; ?>
+            </textarea>
         </td>
     </tr>
     <tr>
         <td>Получатель:</td>
-        <td><input style="width:300px;" type="text" value="<?php echo $firm->name; ?>" name="recipient">
+        <td>
+            <textarea name="recipient" id="" cols="40" rows="3"><?php echo $firm->name; ?></textarea>
         </td>
     </tr>
     <tr>
         <td>БИН и адрес нахождения получателя:</td>
-        <td><input style="width:300px;" type="text" value="<?php echo "БИН " . $firm->bin . ", " . $firm->address; ?>"
-                   name="recipient_address">
+        <td>
+            <textarea name="recipient_address" id="" cols="40"
+                      rows="6"><?php echo "БИН " . $firm->bin . ", " . $firm->address; ?></textarea>
         </td>
     </tr>
     </tbody>
