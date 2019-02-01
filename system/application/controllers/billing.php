@@ -742,13 +742,13 @@ function dob($text)
 		}
 		else 
 			$data['oplata_value']=0;
-		$string=$this->load->view("reports/vedomost",$data,TRUE);
-		$this->pdf->writeHTML($string);
-        
-        //Close and output PDF document
-        $this->pdf->Output('example_001.pdf', 'I'); 
-		
-	}
+//		$string=$this->load->view("reports/vedomost",$data,TRUE);
+//		$this->pdf->writeHTML($string);
+//        $this->pdf->Output('example_001.pdf', 'I');
+
+        $this->load->view("reports/vedomost",$data);
+    }
+
 	function pre_akt_sverki()
 	{
 		$this->db->where('id',$this->uri->segment(3));
@@ -761,6 +761,7 @@ function dob($text)
 		$this->load->view("pre_akt_sverki",$data);
 		$this->load->view("right");
 	}
+
 	function akt_sverki()
 	{
 		$sql="select * from industry.vedomost where firm_id={$_POST['firm_id']} and  period_id between {$_POST['start_period_id']} and {$_POST['finish_period_id']}";
