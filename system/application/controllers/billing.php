@@ -1077,7 +1077,10 @@ function dob($text)
 		$this->db->where('period_id',$_POST['period_id']);
 		$this->db->where('firm_id',$_POST['firm_id']);
 		$data['r']= $this->db->get('industry.schetfactura_date');		
-		
+
+		$this->db->where("id",$data['firm_id']);
+        $data['firm'] = $this->db->get("industry.firm")->row();
+
 		$sql="select distinct value as tariff_value from industry.tariff_value ";
 		$data['tariffs']=$this->db->query($sql);
 
@@ -1103,7 +1106,10 @@ function dob($text)
 		$this->db->where('id',$data['firm']->bank_id);
 		$data['bank']=$this->db->get("industry.bank")->row();
 		$data['schet']=!isset($_POST['schet'])?" ОПЛАТА":"-ФАКТУРА";
-		
+
+        $data['consignee'] = $_POST['consignee'];
+        $data['recipient'] = $_POST['recipient'];
+        $data['recipient_address'] = $_POST['recipient_address'];
 		
 		if ($_POST['type']=="by_tenge")
 		{
