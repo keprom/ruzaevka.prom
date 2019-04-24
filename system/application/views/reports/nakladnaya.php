@@ -1,7 +1,7 @@
-<?php 
+<?php
 function datetostring($date)
 {
-	$d=explode("-",$date); 
+	$d=explode("-",$date);
 	return $d['2'].'.'.$d['1'].'.'.$d['0'];
 }
 function f_d($var)
@@ -16,18 +16,18 @@ function f_d3($var)
 }
 function datetostring2($date)
 {
-	$d=explode("-",$date); 
+	$d=explode("-",$date);
 	return $d['1'].'.'.$d['0'];
 }
 
 ?>
-<html> 
+<html>
 
-	
+
 	<body lang=RU>
-	</body> 
+	</body>
 	<table width =100%>
-	
+
 		<tr>
  <td width=2100px align=right> <b>РНН:</b> <?php echo $org->rnn; ?>
  </td>
@@ -51,8 +51,8 @@ function datetostring2($date)
  <tr><td width=2100px> <?php echo $org->org_name; ?>
  </td>
  </tr>
- 
- <tr><td width=2100px><b>Мекенжай/Адрес:</b> <?php echo $org->address; ?> 
+
+ <tr><td width=2100px><b>Мекенжай/Адрес:</b> <?php echo $org->address; ?>
  </td>
  </tr>
  <tr><td></td></tr>
@@ -71,8 +71,8 @@ if (strlen($data_schet)==0){ echo datetostring($schetfactura_date->date);} else 
 			<tr>	<td><?php echo "Кому ".$firm->name; ?></td></tr>
 	</table>
 	 <br>
-	
-	 <table border="1px" width="100%" align="center" > 
+
+	 <table border="1px" width="100%" align="center" >
  <tr>
 	<td rowspan="1" width="100px"valign="middle">№ п/п</td>
 	<td rowspan="1" width="600px"valign="middle">Наименование материалов</td>
@@ -90,15 +90,15 @@ if (strlen($data_schet)==0){ echo datetostring($schetfactura_date->date);} else 
 <td width="300px">5</td>
 <td width="300px">6</td>
 </tr>
-<?php 
+<?php
 $sum_bez_nds=0;$sum_nds=0;$sum=0;$i=1;
 
 $i_t=$itog->itog_tenge;
 $i_nds=$itog->itogo_nds;
 $i_itogo=$itog->itogo_with_nds;
 
-foreach($s as $s2 ): 
-?>	
+foreach($s as $s2 ):
+?>
 <tr align="center">
 	<TD width="100px"><?php echo $i;?></td>
 	<TD width="600px">электроэнергия <?php echo datetostring2($schetfactura_date->date);?> </td>
@@ -148,8 +148,8 @@ foreach($s as $s2 ):
 <table>
 <tr><td></td><td></td><td></td></tr>
 <tr>
-<td align="left">Разрешил директор:</td>
-<td align="right"> <?php echo trim($org->director); ?></td>
+<td align="left">Разрешил уполномоченный за подписание счета-фактуры за директора, заместитель директора по сбыту:</td>
+<td align="right"> <?php echo trim($org->nachalnik_otdela_sbyta); ?></td>
 <td></td>
 </tr>
 <tr><td></td></tr>
@@ -185,5 +185,5 @@ foreach($s as $s2 ):
 <td></td>
 </tr>
 </table>
-			
+
 </html> 

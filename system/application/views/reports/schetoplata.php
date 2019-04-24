@@ -218,11 +218,11 @@ function f_d2($var)
 
 <table width=100%>
     <tr>
-        <td align=left>Руководитель организации</td>
+        <td align=left>Уполномоченный за подписание счета-фактуры за директора, заместитель директора по сбыту</td>
         <td align=right>ВЫДАЛ (Ответственное лицо поставщика)</td>
     </tr>
     <tr>
-        <td align=left><?php echo $org->director; ?>____________</td>
+        <td align=left><?php echo $org->nachalnik_otdela_sbyta; ?>____________</td>
         <td align=right>Ведущий инженер <u>Бодня М.А.</u></td>
     </tr>
     <tr>
