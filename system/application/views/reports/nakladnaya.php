@@ -148,8 +148,8 @@ foreach($s as $s2 ):
 <table>
 <tr><td></td><td></td><td></td></tr>
 <tr>
-<td align="left">Разрешил уполномоченный за подписание счета-фактуры за директора, заместитель директора по сбыту:</td>
-<td align="right"> <?php echo trim($org->nachalnik_otdela_sbyta); ?></td>
+<td align="left">Разрешил директор:</td>
+<td align="right">_________________</td>
 <td></td>
 </tr>
 <tr><td></td></tr>

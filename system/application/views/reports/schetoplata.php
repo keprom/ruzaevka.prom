@@ -218,28 +218,36 @@ function f_d2($var)
 
 <table width=100%>
     <tr>
-        <td align=left>Уполномоченный за подписание счета-фактуры за директора, заместитель директора по сбыту</td>
+        <td align=left>Руководитель организации</td>
         <td align=right>ВЫДАЛ (Ответственное лицо поставщика)</td>
     </tr>
     <tr>
-        <td align=left><?php echo $org->nachalnik_otdela_sbyta; ?>____________</td>
-        <td align=right>Ведущий инженер <u>Бодня М.А.</u></td>
+        <td align=left>________________ ________________</td>
+        <td align=right>Ведущий инженер <u>Бодня М.А.</u> _____________</td>
     </tr>
     <tr>
-        <td align=left>(Ф.И.О., подпись)</td>
-        <td align=right>(Ф.И.О., подпись)</td>
+        <td align=left><sub>(Ф.И.О., подпись)</sub></td>
+        <td align=right><sub>(Ф.И.О., подпись)</sub></td>
+    </tr>
+    <tr>
+        <td align=left>Уполномоченный за подписание счета-фактуры за директора,<br> заместитель директора по сбыту <?php echo $org->nachalnik_otdela_sbyta; ?> _______________</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td align=left><sub>(Ф.И.О., подпись)</sub></td>
+        <td align=right>></td>
     </tr>
     <tr>
         <td align=left>Главный бухгалтер организации</td>
-        <td align=right>Бухгалтер потребителя&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td align=right>Бухгалтер потребителя</td>
     </tr>
     <tr>
-        <td align=left><?php echo $org->glav_buh; ?>_______________</td>
-        <td align=right>___________________</td>
+        <td align=left><?php echo $org->glav_buh; ?> ________________</td>
+        <td align=right>_____________ ___________________</td>
     </tr>
     <tr>
-        <td align=left>(Ф.И.О., подпись)</td>
-        <td align=right>(Ф.И.О., подпись)</td>
+        <td align=left><sub>(Ф.И.О., подпись)</sub></td>
+        <td align=right><sub>(Ф.И.О., подпись)</sub></td>
     </tr>
 </table>
 <br>
