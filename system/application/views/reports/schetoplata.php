@@ -230,7 +230,7 @@ function f_d2($var)
         <td align=right><sub>(Ф.И.О., подпись)</sub></td>
     </tr>
     <tr>
-        <td align=left>Уполномоченный за подписание счета-фактуры за директора,<br> заместитель директора по сбыту <?php echo $org->nachalnik_otdela_sbyta; ?> _______________</td>
+        <td align=left>Уполномоченный на подписание счета-фактуры за директора,<br> заместитель директора по сбыту <?php echo $org->nachalnik_otdela_sbyta; ?> _______________</td>
         <td></td>
     </tr>
     <tr>
