@@ -222,7 +222,7 @@ function f_d2($var)
         <td align=right>ВЫДАЛ (Ответственное лицо поставщика)</td>
     </tr>
     <tr>
-        <td align=left>________________ ________________</td>
+        <td align=left><?php echo $org->director; ?> ________________</td>
         <td align=right>Ведущий инженер <u>Бодня М.А.</u> _____________</td>
     </tr>
     <tr>

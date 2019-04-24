@@ -149,7 +149,7 @@ foreach($s as $s2 ):
 <tr><td></td><td></td><td></td></tr>
 <tr>
 <td align="left">Разрешил директор:</td>
-<td align="right">_________________</td>
+<td align="right"><?php echo $org->director; ?></td>
 <td></td>
 </tr>
 <tr><td></td></tr>

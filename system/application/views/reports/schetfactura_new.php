@@ -267,7 +267,7 @@ foreach($s as $s2 ):
  <FONT size=7>
  <table width="100%">
  <tr>
- <td align="left"><b>Ұйымның басшысы <br/>Директор филиала: _________________</b></td>
+ <td align="left"><b>Ұйымның басшысы <br/>Директор филиала: <?php echo $org->director; ?></b></td>
  <td></td>
  <td align="right"><b>БЕРДІ (жеткізушінің жауапты тұлғасы)<br/>ВЫДАЛ (ответственное лицо поставщика) </b></td>
   </tr>
