@@ -235,7 +235,7 @@ function f_d2($var)
     </tr>
     <tr>
         <td align=left><sub>(Ф.И.О., подпись)</sub></td>
-        <td align=right>></td>
+        <td align=right></td>
     </tr>
     <tr>
         <td align=left>Главный бухгалтер организации</td>
